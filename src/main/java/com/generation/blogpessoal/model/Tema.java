@@ -44,9 +44,6 @@ public class Tema{
         this.descricao = descricao;
     }
 
-    /**
-     *  Métodos Get e Set para a Collection postagem
-     */
     public List<Postagem> getPostagem() {
         return postagem;
     }
@@ -54,5 +51,4 @@ public class Tema{
     public void setPostagem(List<Postagem> postagem) {
         this.postagem = postagem;
     }
-
 }

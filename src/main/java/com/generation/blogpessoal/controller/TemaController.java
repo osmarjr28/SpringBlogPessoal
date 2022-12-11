@@ -54,12 +54,12 @@ public class TemaController {
     @PutMapping
     public ResponseEntity<Tema> putTema(@Valid @RequestBody Tema tema) {
 
-        return temaRepository.findById(tema.getId())
-                .map(resposta -> {
-                    return ResponseEntity.ok().body(temaRepository.save(tema));
-                })
-                .orElse(ResponseEntity.notFound().build());
+        if (tema.getId() != null)
+            return temaRepository.findById(tema.getId())
+                    .map(resposta -> ResponseEntity.ok().body(temaRepository.save(tema)))
+                    .orElse(ResponseEntity.notFound().build());
 
+        return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
